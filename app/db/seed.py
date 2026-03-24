@@ -49,23 +49,25 @@ clips = [
     }
 ]
 
+
 def seed():
     db = SessionLocal()
-    
+
     # check
     existing = db.query(Clip).first()
     if existing:
         print("Database already seeded!")
         db.close()
         return
-    
+
     for clip in clips:
         db_clip = Clip(**clip)
         db.add(db_clip)
-    
+
     db.commit()
     db.close()
     print("Database seeded with 6 clips")
+
 
 if __name__ == "__main__":
     seed()
