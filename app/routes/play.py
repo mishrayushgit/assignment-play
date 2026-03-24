@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException
+from app.middleware.auth import verify_api_key
 # from fastapi.responses import RedirectResponse
 from sqlalchemy.orm import Session
 from app.db.database import get_db
@@ -7,7 +8,7 @@ from app.schemas.clip import ClipResponse, ClipCreate
 from typing import List
 import httpx
 from fastapi.responses import StreamingResponse
-router = APIRouter()
+router = APIRouter(dependencies=[Depends(verify_api_key)])
 
 # GET /play - return all clips
 

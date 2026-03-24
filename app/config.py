@@ -6,6 +6,7 @@ class Settings(BaseSettings):
     model_config = ConfigDict(extra="ignore", env_file=".env")
 
     DATABASE_URL: str
+    API_KEY: str
 
 
 settings = Settings()
