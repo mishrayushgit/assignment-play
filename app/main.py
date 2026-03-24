@@ -21,4 +21,4 @@ app.include_router(play_router, prefix="/play", tags=["Play"])
 
 @app.get("/")
 def root():
-    return {"message": "API is running "}
+    return {"message": "API is running"}
